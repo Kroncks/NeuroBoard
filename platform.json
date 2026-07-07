@@ -2,10 +2,13 @@
   "name": "neuroboard",
   "title": "NeuroBoard",
   "version": "1.0.0",
-  "description": "NeuroBoard ESP32-S3 Platform",
+  "description": "PlatformIO support for NeuroBoard ESP32-S3",
   "homepage": "https://github.com/Kroncks/NeuroBoard",
   "license": "MIT",
-  "scripts": {
-    "platform": "platform.py"
+  "packages": {
+    "framework-arduinoespressif32": {
+      "type": "framework",
+      "owner": "espressif"
+    }
   }
 }
