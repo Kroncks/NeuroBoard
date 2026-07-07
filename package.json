@@ -1,0 +1,18 @@
+{
+  "name": "NeuroBoard",
+  "version": "1.0.0",
+  "description": "PlatformIO support package for NeuroBoard",
+  "keywords": [
+    "platformio",
+    "esp32s3",
+    "neuroboard",
+    "ECE"
+  ],
+  "license": "MIT",
+  "export": {
+    "include": [
+      "boards/*",
+      "examples/*"
+    ]
+  }
+}
