@@ -1,14 +1,11 @@
 {
   "name": "neuroboard",
-  "version": "1.0.0",
   "title": "NeuroBoard",
-  "packages": {
-    "framework-arduinoespressif32": {
-      "type": "framework",
-      "optional": true
-    }
-  },
-  "dependencies": {
-    "espressif32": "*"
+  "version": "1.0.0",
+  "description": "NeuroBoard ESP32-S3 Platform",
+  "homepage": "https://github.com/Kroncks/NeuroBoard",
+  "license": "MIT",
+  "scripts": {
+    "platform": "platform.py"
   }
 }
