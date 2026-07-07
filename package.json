@@ -9,6 +9,7 @@
     "ECE"
   ],
   "license": "MIT",
+  "type": "board",
   "export": {
     "include": [
       "boards/*",
