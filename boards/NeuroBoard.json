@@ -50,6 +50,6 @@
     "require_upload_port": true,
     "speed": 921600
   },
-  "url": "https://github.com/NeuroBoard/NeuroBoard",
+  "url": "https://github.com/Kroncks/NeuroBoard",
   "vendor": "ECE"
 }
