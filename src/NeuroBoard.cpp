@@ -26,10 +26,16 @@ rgb(
 void NeuroBoardClass::begin()
 {
     Serial.begin(NEURO_BAUD_RATE);
-    delay(1000);
 
     rgb.begin();
     rgb.setBrightness(NEURO_RGB_BRIGHTNESS);
+
+    setRGB(0,61,62); // demi boot ece
+
+    unsigned long start = millis();
+    while (!Serial && (millis() - start < 3000)) {
+        ; // attend max 3 secondes
+    }
 
     setRGB(0,122,123); // boot ece
 
