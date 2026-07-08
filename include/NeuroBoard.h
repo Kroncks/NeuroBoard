@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
+#include <stdarg.h>
 
 
 class NeuroBoardClass {
@@ -19,6 +20,9 @@ public:
     NeuroBoardClass();
 
 
+    bool log;
+
+
     void begin();
 
 
@@ -33,6 +37,12 @@ public:
 
 
     bool initSD();
+
+
+    void logMessagef(
+        const char* format,
+        ...
+    );
 
 
     bool hasCamera();

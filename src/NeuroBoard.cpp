@@ -1,6 +1,8 @@
 #include "NeuroBoard.h"
 #include "config.h"
 
+#include <stdio.h>
+
 
 #include "esp_camera.h"
 #include <SD_MMC.h>
@@ -16,6 +18,7 @@ rgb(
 {
     cameraOK = false;
     sdOK = false;
+    log = true;
 }
 
 
@@ -30,7 +33,27 @@ void NeuroBoardClass::begin()
 
     setRGB(0,122,123); // boot ece
 
-    Serial.println("[NeuroBoard] Init");
+    logMessagef("[NeuroBoard] Init");
+}
+
+
+
+void NeuroBoardClass::logMessagef(
+    const char* format,
+    ...
+)
+{
+    if(!log)
+    {
+        return;
+    }
+
+    va_list args;
+    va_start(args, format);
+    char buffer[256];
+    vsnprintf(buffer, sizeof(buffer), format, args);
+    Serial.println(buffer);
+    va_end(args);
 }
 
 
@@ -57,7 +80,7 @@ void NeuroBoardClass::setRGB(
 bool NeuroBoardClass::initSD()
 {
 
-    Serial.println("[SD] Init");
+    logMessagef("[SD] Init");
 
 
     SD_MMC.setPins(
@@ -69,14 +92,14 @@ bool NeuroBoardClass::initSD()
 
     if(!SD_MMC.begin("/sdcard",true,true))
     {
-        Serial.println("[SD] FAILED");
+        logMessagef("[SD] FAILED");
 
         sdOK=false;
         return false;
     }
 
 
-    Serial.println("[SD] OK");
+    logMessagef("[SD] OK");
 
     sdOK=true;
 
@@ -90,7 +113,7 @@ bool NeuroBoardClass::initSD()
 bool NeuroBoardClass::initCamera()
 {
 
-    Serial.println("[CAM] Init");
+    logMessagef("[CAM] Init");
 
 
     camera_config_t config;
@@ -152,8 +175,8 @@ bool NeuroBoardClass::initCamera()
 
     if(err != ESP_OK)
     {
-        Serial.printf(
-            "[CAM] ERROR 0x%x\n",
+        logMessagef(
+            "[CAM] ERROR 0x%x",
             err
         );
 
@@ -162,7 +185,7 @@ bool NeuroBoardClass::initCamera()
     }
 
 
-    Serial.println("[CAM] OK");
+    logMessagef("[CAM] OK");
 
     cameraOK=true;
 
