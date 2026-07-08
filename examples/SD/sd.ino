@@ -4,10 +4,7 @@
 static bool writeTestFile()
 {
     File file = SD_MMC.open("/test.txt", FILE_WRITE);
-    if(!file)
-    {
-        return false;
-    }
+    if(!file) return false;
 
     bool ok = file.print("bonsoir") > 0;
     file.close();
@@ -26,16 +23,10 @@ void setup()
     }
 
     if(writeTestFile())
-    {
         NeuroBoard.setRGB(0, 255, 0);
-    }
     else
-    {
         NeuroBoard.setRGB(255, 0, 0);
-    }
 }
 
 
-void loop()
-{
-}
+void loop(){}
