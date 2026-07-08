@@ -6,9 +6,9 @@
 
 // ================= NeoPixel =================
 #define NEURO_RGB_PIN    38
-#define NEURO_NUM_LEDS   1
-#define NEURO_LED_TYPE   (NEO_GRB + NEO_KHZ800)
-#define NEURO_BRIGHTNESS 50
+#define NEURO_RGB_COUNT   1
+#define NEURO_RGB_TYPE   (NEO_GRB + NEO_KHZ800)
+#define NEURO_RGB_BRIGHTNESS 50
 
 // ================= SD Card =================
 #define NEURO_SD_CLK  40
