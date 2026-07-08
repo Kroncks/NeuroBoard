@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "adafruit/Adafruit NeoPixel": "^1.12.0"
-  }
+  },
   "build": {
     "flags": [
       "-DARDUINO_USB_CDC_ON_BOOT=1",
