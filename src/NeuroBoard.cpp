@@ -23,9 +23,9 @@ rgb(
 void NeuroBoardClass::begin()
 {
     rgb.begin();
-    rgb.setBrightness(50);
+    rgb.setBrightness(NEURO_RGB_BRIGHTNESS);
 
-    setRGB(255,100,0); // orange boot
+    setRGB(0,122,123); // boot ece
 
     Serial.println("[NeuroBoard] Init");
 }
