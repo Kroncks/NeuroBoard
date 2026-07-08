@@ -1,6 +1,6 @@
 {
   "name": "NeuroBoard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Arduino library for the NeuroBoard ESP32-S3 board (RGB LED, camera and SD card)",
   "keywords": [
     "neuroboard",
