@@ -39,7 +39,7 @@ void NeuroBoardClass::begin()
 
     setRGB(0,122,123); // boot ece
 
-    logMessagef("[NeuroBoard] Init");
+    logMessagef("[NeuroBoard] Init OK");
 }
 
 
@@ -119,7 +119,7 @@ bool NeuroBoardClass::initSD()
 bool NeuroBoardClass::initCamera()
 {
 
-    logMessagef("[CAM] Init");
+    logMessagef("[CAM] Init...");
 
 
     camera_config_t config;
