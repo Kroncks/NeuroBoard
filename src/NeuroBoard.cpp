@@ -1,11 +1,7 @@
 #include "NeuroBoard.h"
 #include "config.h"
 
-#include <stdio.h>
 
-
-#include "esp_camera.h"
-#include <SD_MMC.h>
 
 
 NeuroBoardClass::NeuroBoardClass()
@@ -36,6 +32,8 @@ void NeuroBoardClass::begin()
     while (!Serial && (millis() - start < 3000)) {
         ; // attend max 3 secondes
     }
+
+    delay(100);
 
     setRGB(0,122,123); // boot ece
 

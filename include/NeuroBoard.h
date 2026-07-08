@@ -3,6 +3,9 @@
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include "esp_camera.h"
+#include <SD_MMC.h>
 
 
 class NeuroBoardClass {
