@@ -1,10 +1,23 @@
 #pragma once
 
 #include <Arduino.h>
+#include <Adafruit_NeoPixel.h>
+
 
 class NeuroBoardClass {
 
+private:
+
+    Adafruit_NeoPixel rgb;
+
+    bool cameraOK;
+    bool sdOK;
+
+
 public:
+
+    NeuroBoardClass();
+
 
     void begin();
 
@@ -16,13 +29,16 @@ public:
     );
 
 
-    bool cameraInit();
+    bool initCamera();
 
 
-    bool sdInit();
+    bool initSD();
 
 
-    bool psramTest();
+    bool hasCamera();
+
+
+    bool hasSD();
 
 };
 
