@@ -80,6 +80,15 @@ void NeuroBoardClass::setRGB(
 }
 
 
+void NeuroBoardClass::setBrightnessRGB(
+    uint8_t brightness
+)
+{
+    rgb.setBrightness(
+        brightness
+    );
+}
+
 
 
 
