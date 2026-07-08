@@ -22,6 +22,9 @@ rgb(
 
 void NeuroBoardClass::begin()
 {
+    Serial.begin(NEURO_BAUD_RATE);
+    delay(1000);
+
     rgb.begin();
     rgb.setBrightness(NEURO_RGB_BRIGHTNESS);
 

@@ -4,6 +4,9 @@
 // NeuroBoard Hardware Configuration
 // =====================================================
 
+// ================= Baud Rate =================
+#define NEURO_BAUD_RATE 115200
+
 // ================= NeoPixel =================
 #define NEURO_RGB_PIN    38
 #define NEURO_RGB_COUNT   1
