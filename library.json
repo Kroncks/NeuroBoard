@@ -1,17 +1,22 @@
 {
   "name": "NeuroBoard",
-  "version": "1.0.1",
-  "description": "Arduino library for the NeuroBoard ESP32-S3 board (RGB LED, camera and SD card)",
+  "version": "1.0.0",
+  "description": "Arduino library for the ECE NeuroBoard ESP32-S3",
   "keywords": [
     "neuroboard",
-    "ece",
+    "ia",
+    "vision",
     "esp32",
-    "esp32s3",
+    "esp32-s3",
     "camera",
     "sd",
     "neopixel",
-    "neuroboard"
+    "ece"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kroncks/NeuroBoard.git"
+  },
   "authors": [
     {
       "name": "Kroncks"
@@ -26,10 +31,5 @@
   ],
   "dependencies": {
     "adafruit/Adafruit NeoPixel": "^1.12.0"
-  },
-  "export": {
-    "include": [
-      "src/*"
-    ]
   }
 }
