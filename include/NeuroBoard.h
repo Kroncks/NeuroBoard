@@ -35,6 +35,7 @@ public:
         uint8_t b
     );
 
+    void setBrightnessRGB(uint8_t brightness);
 
     bool initCamera();
 
