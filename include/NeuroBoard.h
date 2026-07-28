@@ -16,6 +16,7 @@ private:
 
     bool cameraOK;
     bool sdOK;
+    bool rgbOK;
 
 
 public:
@@ -37,9 +38,8 @@ public:
 
     void setBrightnessRGB(uint8_t brightness);
 
+    bool initRGB();
     bool initCamera();
-
-
     bool initSD();
 
 

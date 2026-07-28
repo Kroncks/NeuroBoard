@@ -12,6 +12,7 @@ rgb(
     NEO_GRB + NEO_KHZ800
 )
 {
+    rgbOK = false;
     cameraOK = false;
     sdOK = false;
     log = true;
@@ -23,8 +24,7 @@ void NeuroBoardClass::begin()
 {
     Serial.begin(NEURO_BAUD_RATE);
 
-    rgb.begin();
-    rgb.setBrightness(NEURO_RGB_BRIGHTNESS);
+    initRGB();
 
     setRGB(0,61,62); // demi boot ece
 
@@ -63,12 +63,16 @@ void NeuroBoardClass::logMessagef(
 
 
 
-void NeuroBoardClass::setRGB(
-    uint8_t r,
-    uint8_t g,
-    uint8_t b
-)
+void NeuroBoardClass::setRGB(uint8_t r,uint8_t g,uint8_t b)
 {
+    if(!rgbOK)
+    {
+        if(!initRGB())
+        {
+            return;
+        }
+    }
+
     rgb.setPixelColor(
         0,
         rgb.Color(r,g,b)
@@ -87,7 +91,22 @@ void NeuroBoardClass::setBrightnessRGB(
     );
 }
 
+bool NeuroBoardClass::initRGB()
+{
+    if(rgbOK)
+    {
+        return true;
+    }
 
+    rgb.begin();
+    rgb.setBrightness(NEURO_RGB_BRIGHTNESS);
+    rgb.clear();
+    rgb.show();
+
+    rgbOK = true;
+
+    return true;
+}
 
 
 bool NeuroBoardClass::initSD()
