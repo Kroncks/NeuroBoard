@@ -58,7 +58,7 @@
       "name": "Test_init_camera",
       "base": "examples/3_Test_init_camera",
       "files": [
-        "src/test-cam.cpp"
+        "src/test_cam.cpp"
       ]
     },
     {
