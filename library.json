@@ -41,13 +41,6 @@
       ]
     },
     {
-      "name": "_Template",
-      "base": "examples/_Template",
-      "files": [
-        "src/template.cpp"
-      ]
-    },
-    {
       "name": "1_RGB",
       "base": "examples/1) RGB",
       "files": [
