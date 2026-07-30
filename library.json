@@ -34,13 +34,6 @@
   },
   "examples": [
     {
-      "name": "README",
-      "base": "examples/_README",
-      "files": [
-        "README.md"
-      ]
-    },
-    {
       "name": "1_RGB",
       "base": "examples/1) RGB",
       "files": [
