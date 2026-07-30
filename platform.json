@@ -1,7 +1,7 @@
 {
   "name": "neuroboard",
   "title": "NeuroBoard",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "PlatformIO support for NeuroBoard ESP32-S3",
   "homepage": "https://github.com/Kroncks/NeuroBoard",
   "license": "MIT",
