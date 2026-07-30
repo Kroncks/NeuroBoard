@@ -42,35 +42,35 @@
     },
     {
       "name": "RGB",
-      "base": "examples/1) RGB",
+      "base": "examples/1_RGB",
       "files": [
         "src/rgb.cpp"
       ]
     },
     {
       "name": "SD",
-      "base": "examples/2) SD",
+      "base": "examples/2_SD",
       "files": [
         "src/sd.cpp"
       ]
     },
     {
       "name": "Test_init_camera",
-      "base": "examples/3) Test_init_camera",
+      "base": "examples/3_Test_init_camera",
       "files": [
         "src/test-cam.cpp"
       ]
     },
     {
       "name": "Photo",
-      "base": "examples/4) Photo",
+      "base": "examples/4_Photo",
       "files": [
         "src/photo.cpp"
       ]
     },
     {
       "name": "Demo_complete",
-      "base": "examples/5) Demo_complete",
+      "base": "examples/5_Demo_complete",
       "files": [
         "src/demo.cpp"
       ]
