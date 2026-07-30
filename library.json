@@ -1,6 +1,6 @@
 {
   "name": "NeuroBoard",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Arduino library for the ECE NeuroBoard ESP32-S3",
   "keywords": [
     "neuroboard",
@@ -34,38 +34,45 @@
   },
   "examples": [
     {
-      "name": "ALL-IN",
-      "base": "examples/ALL-IN",
+      "name": "README",
+      "base": "examples",
       "files": [
-        "src/all-in.cpp"
-      ]
-    },
-    {
-      "name": "Camera",
-      "base": "examples/Camera",
-      "files": [
-        "src/camera.cpp"
+        "_README.md"
       ]
     },
     {
       "name": "RGB",
-      "base": "examples/RGB",
+      "base": "examples/1) RGB",
       "files": [
         "src/rgb.cpp"
       ]
     },
     {
       "name": "SD",
-      "base": "examples/SD",
+      "base": "examples/2) SD",
       "files": [
         "src/sd.cpp"
       ]
     },
     {
-      "name": "TEST-CAM",
-      "base": "examples/TEST-CAM",
+      "name": "Test_init_camera",
+      "base": "examples/3) Test_init_camera",
       "files": [
         "src/test-cam.cpp"
+      ]
+    },
+    {
+      "name": "Photo",
+      "base": "examples/4) Photo",
+      "files": [
+        "src/photo.cpp"
+      ]
+    },
+    {
+      "name": "Demo_complete",
+      "base": "examples/5) Demo_complete",
+      "files": [
+        "src/demo.cpp"
       ]
     }
   ]
