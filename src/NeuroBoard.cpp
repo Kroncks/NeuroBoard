@@ -18,50 +18,18 @@ rgb(
     log = true;
 }
 
-
-
-void NeuroBoardClass::begin()
+void NeuroBoardClass::logMessagef(const char *format, ...)
 {
-    Serial.begin(NEURO_BAUD_RATE);
-
-    initRGB();
-
-    setRGB(0,61,62); // demi boot ece
-
-    unsigned long start = millis();
-    while (!Serial && (millis() - start < 3000)) {
-        ; // attend max 3 secondes
-    }
-
-    delay(100);
-
-    setRGB(0,122,123); // boot ece
-
-    logMessagef("[NeuroBoard] Init OK");
-}
-
-
-
-void NeuroBoardClass::logMessagef(
-    const char* format,
-    ...
-)
-{
-    if(!log)
-    {
+    if (!log || Serial.baudRate() == 0)
         return;
-    }
 
     va_list args;
     va_start(args, format);
-    char buffer[256];
-    vsnprintf(buffer, sizeof(buffer), format, args);
-    Serial.println(buffer);
+    Serial.vprintf(format, args);
     va_end(args);
+
+    Serial.println();
 }
-
-
-
 
 void NeuroBoardClass::setRGB(uint8_t r,uint8_t g,uint8_t b)
 {
