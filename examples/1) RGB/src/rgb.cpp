@@ -4,7 +4,7 @@
 void setup()
 {
   Serial.begin(9600);
-NeuroBoard.initRGB();
+  NeuroBoard.initRGB();
 }
 
 

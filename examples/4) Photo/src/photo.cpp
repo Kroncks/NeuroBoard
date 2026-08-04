@@ -30,7 +30,7 @@ static bool capturePhotoToSD()
 void setup()
 {
     Serial.begin(9600);
-NeuroBoard.initRGB();
+    NeuroBoard.initRGB();
 
     if(!NeuroBoard.initCamera())
     {

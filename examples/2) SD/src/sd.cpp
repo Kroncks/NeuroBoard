@@ -15,7 +15,7 @@ static bool writeTestFile()
 void setup()
 {
     Serial.begin(9600);
-NeuroBoard.initRGB();
+    NeuroBoard.initRGB();
 
     if(!NeuroBoard.initSD())
     {
