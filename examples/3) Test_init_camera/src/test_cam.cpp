@@ -3,7 +3,8 @@
 
 void setup()
 {
-    NeuroBoard.begin();
+    Serial.begin(9600);
+NeuroBoard.initRGB();
 
     if(NeuroBoard.initCamera())
       NeuroBoard.setRGB(0,255,0);

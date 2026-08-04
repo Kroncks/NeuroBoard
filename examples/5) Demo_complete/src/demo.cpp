@@ -200,7 +200,8 @@ static void streamTask(void*)
 
 void setup()
 {
-    NeuroBoard.begin();
+    Serial.begin(9600);
+NeuroBoard.initRGB();
     setLed(255, 165, 0);
 
     WiFi.softAP(WIFI_SSID, WIFI_PASS);
