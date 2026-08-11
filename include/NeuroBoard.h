@@ -18,17 +18,20 @@ private:
     bool sdOK;
     bool rgbOK;
 
+    void logMessagef(
+        const char* format,
+        ...
+    );
 
 public:
 
     NeuroBoardClass();
 
+    bool initRGB();
+    bool initCamera();
+    bool initSD();
 
     bool log;
-
-
-    void begin();
-
 
     void setRGB(
         uint8_t r,
@@ -38,22 +41,8 @@ public:
 
     void setBrightnessRGB(uint8_t brightness);
 
-    bool initRGB();
-    bool initCamera();
-    bool initSD();
-
-
-    void logMessagef(
-        const char* format,
-        ...
-    );
-
-
     bool hasCamera();
-
-
     bool hasSD();
-
 };
 
 
