@@ -12,15 +12,15 @@ NeuroBoard.setRGB(0, 122, 123); // set the color of the LED
 
 ### Summary
 
-| Function                       | Description          |
-| ------------------------------ | -------------------- |
-| `initRGB()`                    | Initialize RGB LED   |
-| `setRGB(r, g, b)`              | Set the RGB LED color|
-| `setBrightnessRGB(brightness)` | Set LED brightness   |
-| `initSD()`                     | Initialize SD card   |
-| `hasSD()`                      | Check SD card status |
-| `initCamera()`                 | Initialize camera    |
-| `hasCamera()`                  | Check camera status  |
+| Function                 | Description          |
+| ------------------------ | -------------------- |
+| `initRGB()`              | Initialize RGB LED   |
+| `setRGB(r, g, b)`        | Set the RGB LED color|
+| `setBrightnessRGB(b)`    | Set LED brightness   |
+| `initSD()`               | Initialize SD card   |
+| `hasSD()`                | Check SD card status |
+| `initCamera()`           | Initialize camera    |
+| `hasCamera()`            | Check camera status  |
 
 ### Components :
 
