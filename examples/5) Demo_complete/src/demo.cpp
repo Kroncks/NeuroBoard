@@ -207,7 +207,8 @@ void setup()
     WiFi.softAP(WIFI_SSID, WIFI_PASS);
     delay(300);
 
-    NeuroBoard.logMessagef("[AP] %s", WiFi.softAPIP().toString().c_str());
+    Serial.print("[AP] ");
+    Serial.println(WiFi.softAPIP());
 
     bool cameraOk = NeuroBoard.initCamera();
     bool sdOk = NeuroBoard.initSD();
@@ -238,7 +239,7 @@ void setup()
     streamServer.begin();
     xTaskCreatePinnedToCore(streamTask, "stream", 4096, nullptr, 1, nullptr, 0);
 
-    NeuroBoard.logMessagef("[HTTP] Ready");
+    Serial.println("[HTTP] Ready");
 }
 
 
