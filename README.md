@@ -5,7 +5,7 @@ The NeuroBoardS3 library provides a simple interface for controlling the main ha
 
 Use the `NeuroBoard.<function>` syntax to access the library functions.
 
-example :
+Example :
 ```cpp
 NeuroBoard.setRGB(0, 122, 123); // set the color of the LED
 ```
@@ -15,7 +15,7 @@ NeuroBoard.setRGB(0, 122, 123); // set the color of the LED
 | Function                       | Description          |
 | ------------------------------ | -------------------- |
 | `initRGB()`                    | Initialize RGB LED   |
-| `setRGB(r, g, b)`              | Set RGB LED color    |
+| `setRGB(r, g, b)`              | Set the RGB LED color|
 | `setBrightnessRGB(brightness)` | Set LED brightness   |
 | `initSD()`                     | Initialize SD card   |
 | `hasSD()`                      | Check SD card status |
@@ -26,7 +26,7 @@ NeuroBoard.setRGB(0, 122, 123); // set the color of the LED
 
 ---
 
-### LED RGB
+### RGB LED
 
 #### `initRGB()`
 
@@ -36,7 +36,7 @@ Initializes the RGB LED.
 NeuroBoard.initRGB();
 ```
 
-- #### `setRGB(uint8_t r, uint8_t g, uint8_t b)`
+#### `setRGB(uint8_t r, uint8_t g, uint8_t b)`
 
 Sets the RGB LED color.
 
@@ -106,4 +106,13 @@ if (NeuroBoard.hasCamera()) {
 
 ---
 
+## Examples 
 
+You can find the examples of this library :
+- On the [GitHub repository](https://github.com/Kroncks/NeuroBoard/tree/main/examples)
+- On the [Platformio library page](https://registry.platformio.org/libraries/kroncks/NeuroBoard/examples)
+- On the Library tab in PIO Home
+
+- Or you can directly open them through `PIO Home > Project Examples > NeuroBoard` if you have installed the NeuroBoard Platform
+
+*You can install the NeuroBoard Platform with `PIO Home > Platforms > Advanced installation > github.com/Kroncks/NeuroBoard > Install`*
