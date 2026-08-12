@@ -20,15 +20,17 @@ rgb(
 
 void NeuroBoardClass::logMessagef(const char *format, ...)
 {
-    if (!log || Serial.baudRate() == 0)
+    if (!log)
         return;
+
+    char buffer[256];
 
     va_list args;
     va_start(args, format);
-    Serial.vprintf(format, args);
+    vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
 
-    Serial.println();
+    Serial.println(buffer);
 }
 
 void NeuroBoardClass::setRGB(uint8_t r,uint8_t g,uint8_t b)
