@@ -1,6 +1,6 @@
 {
   "name": "NeuroBoard",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Arduino library for the ECE NeuroBoard ESP32-S3",
   "keywords": [
     "neuroboard",
