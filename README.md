@@ -122,10 +122,10 @@ You can find the examples of this library :
 
 #### Expected results of examples
 
-| Example              | What it does                                                                 | Expected result                                                                                                    |
-| --------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `1_LED`               | Cycles the onboard LED through red, green, blue                             | LED loops red → green → blue, 1s each, forever                                                                     |
-| `2_SD`                | Initializes the SD card and writes `"bonsoir"` to `/test.txt`               | LED **orange** if the card doesn't mounts. **green** if the mount and the write succeeds, **red** otherwise                                        |
-| `3_Test_init_camera`  | Initializes the camera only                                                 | LED **green** if `initCamera()` succeeds, **red** otherwise                                                        |
-| `4_Photo`             | Initializes camera + SD, captures one frame, saves it to `/photo_<ms>.jpg`  | LED **green** if capture and save both succeed, **purple** if the camera init fails, **orange** if the SD card init fails, **red** if camera init and SD init, or the save fails                |
-| `5_Demo_complete`     | Starts a Wi-Fi AP + web UI with live MJPEG stream, snapshot, and save-to-SD | **YOU NEED TO RENAME THE WIFI NAME FIRST** **green** once everything ready, **purple** if the camera init fails, **orange** if the SD card init fails, **red** if both fails  |
+| Example | What it does | Expected result |
+|---|---|---|
+| `1_LED` | Cycles the onboard LED through red, green, blue | 🔴 **red** → 🟢 **green** → 🔵 **blue**, 1s each, forever |
+| `2_SD` | Initializes the SD card and writes `"bonsoir"` to `/test.txt` | 🟠 **orange** if the card doesn't mount<br>🟢 **green** if the mount and the write succeed<br>🔴 **red** otherwise |
+| `3_Test_init_camera` | Initializes the camera only | 🟢 **green** if `initCamera()` succeeds<br>🔴 **red** otherwise |
+| `4_Photo` | Initializes camera + SD, captures one frame, saves it to `/photo_<ms>.jpg` | 🟢 **green** if capture and save both succeed<br>🟣 **purple** if the camera init fails<br>🟠 **orange** if the SD card init fails<br>🔴 **red** if camera init and SD init succeed, but the save fails |
+| `5_Demo_complete` | Starts a Wi-Fi AP + web UI with live MJPEG stream, snapshot, and save-to-SD | ⚠️ **YOU NEED TO RENAME THE WIFI NAME FIRST**<br>🟢 **green** once everything is ready<br>🟣 **purple** if the camera init fails<br>🟠 **orange** if the SD card init fails<br>🔴 **red** if both fail |
