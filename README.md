@@ -59,6 +59,7 @@ NeuroBoard.setBrightnessLED(100);
 #### `initSD()`
 
 Initializes the SD card.
+
 You can use `NeuroBoard.initSD(true)` to enable formatting when the SD card mount fails.
 
 **Returns:** `true` if successful, otherwise `false`.
