@@ -20,8 +20,7 @@ led(
 
 void NeuroBoardClass::neuroLog(const char *format, ...)
 {
-    if (!log)
-        return;
+    if (!log) return;
 
     char buffer[256];
 
@@ -35,11 +34,7 @@ void NeuroBoardClass::neuroLog(const char *format, ...)
 
 void NeuroBoardClass::setLED(uint8_t r,uint8_t g,uint8_t b)
 {
-    if(!ledOK)
-    {
-        if(!initLED())
-            return;
-    }
+    if(!ledOK) initLED();
 
     led.setPixelColor(
         0,
@@ -54,21 +49,14 @@ void NeuroBoardClass::setBrightnessLED(
     uint8_t brightness
 )
 {
-    if (!ledOK)
-    {
-        if (!initLED())
-            return;
-    }
+    if (!ledOK) initLED();
 
     led.setBrightness(brightness);
 }
 
-bool NeuroBoardClass::initLED()
+void NeuroBoardClass::initLED()
 {
-    if(ledOK)
-    {
-        return true;
-    }
+    if(ledOK) return;
 
     led.begin();
     led.setBrightness(NEURO_LED_BRIGHTNESS);
@@ -76,8 +64,6 @@ bool NeuroBoardClass::initLED()
     led.show();
 
     ledOK = true;
-
-    return true;
 }
 
 

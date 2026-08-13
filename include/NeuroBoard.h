@@ -27,7 +27,7 @@ public:
 
     NeuroBoardClass();
 
-    bool initLED();
+    void initLED();
     bool initCamera();
     bool initSD();
 
