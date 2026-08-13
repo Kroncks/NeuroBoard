@@ -118,7 +118,7 @@ bool NeuroBoardClass::initCamera()
     neuroLog("[CAM] Init...");
 
 
-    camera_config_t config;
+    camera_config_t config = {};
 
 
     config.ledc_channel = LEDC_CHANNEL_0;
