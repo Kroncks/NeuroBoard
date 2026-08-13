@@ -67,11 +67,9 @@ void NeuroBoardClass::initLED()
 }
 
 
-bool NeuroBoardClass::initSD()
+bool NeuroBoardClass::initSD(bool formatOnFail)
 {
-
     neuroLog("[SD] Init");
-
 
     SD_MMC.setPins(
         NEURO_SD_CLK,
@@ -79,19 +77,17 @@ bool NeuroBoardClass::initSD()
         NEURO_SD_DAT0
     );
 
-
-    if(!SD_MMC.begin("/sdcard",true,true))
+    if (!SD_MMC.begin("/sdcard", true, formatOnFail))
     {
         neuroLog("[SD] FAILED");
 
-        sdOK=false;
+        sdOK = false;
         return false;
     }
 
-
     neuroLog("[SD] OK");
 
-    sdOK=true;
+    sdOK = true;
 
     return true;
 }

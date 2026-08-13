@@ -29,7 +29,7 @@ public:
 
     void initLED();
     bool initCamera();
-    bool initSD();
+    bool initSD(bool formatOnFail = false);
 
     bool log;
 
