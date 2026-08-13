@@ -2,10 +2,9 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
-
-static const char* WIFI_SSID = "NeuroBoard-ALL-IN";
-static const char* WIFI_PASS = "12345678";
-
+// Merci de changer le nom du réseau wifi ci dessous 
+#define WIFI_NAME "CHANGE_ME"
+#define WIFI_PASS "12345678"
 
 WebServer server(80);
 WiFiServer streamServer(81);
@@ -204,7 +203,7 @@ void setup()
     NeuroBoard.initLED();
     setLed(255, 165, 0);
 
-    WiFi.softAP(WIFI_SSID, WIFI_PASS);
+    WiFi.softAP(WIFI_NAME, WIFI_PASS);
     delay(300);
 
     Serial.print("[AP] ");
@@ -247,3 +246,41 @@ void loop()
 {
     server.handleClient();
 }
+
+
+
+
+
+
+constexpr bool isDefaultSSID(const char* ssid)
+{
+    const char* defaultSSID = "CHANGE_ME";
+
+    while (*ssid && *defaultSSID)
+    {
+        if (*ssid != *defaultSSID)
+            return false;
+
+        ++ssid;
+        ++defaultSSID;
+    }
+
+    return *ssid == '\0' && *defaultSSID == '\0';
+}
+
+
+
+// Vérifie le changement de nom du réseau wifi
+
+static_assert(
+    !isDefaultSSID(WIFI_NAME),
+    "\n"
+    "\n"
+    "==================================================\n"
+    "           WIFI CONFIGURATION REQUIRED\n"
+    "==================================================\n"
+    "\n"
+    " Merci de changer le nom du réseau wifi ligne 6\n"
+    "\n"
+    "==================================================\n"
+);
