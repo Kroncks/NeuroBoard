@@ -15,18 +15,18 @@ static bool writeTestFile()
 void setup()
 {
     Serial.begin(9600);
-    NeuroBoard.initRGB();
+    NeuroBoard.initLED();
 
     if(!NeuroBoard.initSD())
     {
-        NeuroBoard.setRGB(255, 0, 0);
+        NeuroBoard.setLED(255, 0, 0);
         return;
     }
 
     if(writeTestFile())
-        NeuroBoard.setRGB(0, 255, 0);
+        NeuroBoard.setLED(0, 255, 0);
     else
-        NeuroBoard.setRGB(255, 0, 0);
+        NeuroBoard.setLED(255, 0, 0);
 }
 
 

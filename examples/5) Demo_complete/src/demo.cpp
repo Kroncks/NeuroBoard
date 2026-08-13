@@ -57,7 +57,7 @@ static const char INDEX_HTML[] PROGMEM = R"html(
 
 static void setLed(uint8_t r, uint8_t g, uint8_t b)
 {
-    NeuroBoard.setRGB(r, g, b);
+    NeuroBoard.setLED(r, g, b);
 }
 
 
@@ -201,7 +201,7 @@ static void streamTask(void*)
 void setup()
 {
     Serial.begin(9600);
-    NeuroBoard.initRGB();
+    NeuroBoard.initLED();
     setLed(255, 165, 0);
 
     WiFi.softAP(WIFI_SSID, WIFI_PASS);

@@ -4,18 +4,18 @@
 void setup()
 {
   Serial.begin(9600);
-  NeuroBoard.initRGB();
+  NeuroBoard.initLED();
 }
 
 
 void loop()
 {
-    NeuroBoard.setRGB(255,0,0);
+    NeuroBoard.setLED(255,0,0);
     delay(1000);
 
-    NeuroBoard.setRGB(0,255,0);
+    NeuroBoard.setLED(0,255,0);
     delay(1000);
 
-    NeuroBoard.setRGB(0,0,255);
+    NeuroBoard.setLED(0,0,255);
     delay(1000);
 }

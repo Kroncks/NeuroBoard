@@ -7,16 +7,16 @@ Use the `NeuroBoard.<function>` syntax to access the library functions.
 
 Example :
 ```cpp
-NeuroBoard.setRGB(0, 122, 123); // set the color of the LED
+NeuroBoard.setLED(0, 122, 123); // set the color of the LED
 ```
 
 ### Summary
 
 | Function                 | Description          |
 | ------------------------ | -------------------- |
-| `initRGB()`              | Initialize RGB LED   |
-| `setRGB(r, g, b)`        | Set the RGB LED color|
-| `setBrightnessRGB(b)`    | Set LED brightness   |
+| `initLED()`              | Initialize RGB LED   |
+| `setLED(r, g, b)`        | Set the RGB LED color|
+| `setBrightnessLED(b)`    | Set LED brightness   |
 | `initSD()`               | Initialize SD card   |
 | `hasSD()`                | Check SD card status |
 | `initCamera()`           | Initialize camera    |
@@ -28,28 +28,28 @@ NeuroBoard.setRGB(0, 122, 123); // set the color of the LED
 
 ### RGB LED
 
-#### `initRGB()`
+#### `initLED()`
 
 Initializes the RGB LED.
 
 ```cpp
-NeuroBoard.initRGB();
+NeuroBoard.initLED();
 ```
 
-#### `setRGB(uint8_t r, uint8_t g, uint8_t b)`
+#### `setLED(uint8_t r, uint8_t g, uint8_t b)`
 
 Sets the RGB LED color.
 
 ```cpp
-NeuroBoard.setRGB(255, 0, 0);
+NeuroBoard.setLED(255, 0, 0);
 ```
 
-#### `setBrightnessRGB(uint8_t brightness)`
+#### `setBrightnessLED(uint8_t brightness)`
 
 Sets the RGB LED brightness (`0–255`).
 
 ```cpp
-NeuroBoard.setBrightnessRGB(100);
+NeuroBoard.setBrightnessLED(100);
 ```
 
 ---

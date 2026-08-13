@@ -12,11 +12,11 @@ class NeuroBoardClass {
 
 private:
 
-    Adafruit_NeoPixel rgb;
+    Adafruit_NeoPixel led;
 
     bool cameraOK;
     bool sdOK;
-    bool rgbOK;
+    bool ledOK;
 
     void logMessagef(
         const char* format,
@@ -27,19 +27,19 @@ public:
 
     NeuroBoardClass();
 
-    bool initRGB();
+    bool initLED();
     bool initCamera();
     bool initSD();
 
     bool log;
 
-    void setRGB(
+    void setLED(
         uint8_t r,
         uint8_t g,
         uint8_t b
     );
 
-    void setBrightnessRGB(uint8_t brightness);
+    void setBrightnessLED(uint8_t brightness);
 
     bool hasCamera();
     bool hasSD();

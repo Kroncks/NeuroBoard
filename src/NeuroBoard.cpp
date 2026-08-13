@@ -6,13 +6,13 @@
 
 NeuroBoardClass::NeuroBoardClass()
 :
-rgb(
-    NEURO_RGB_COUNT,
-    NEURO_RGB_PIN,
+led(
+    NEURO_LED_COUNT,
+    NEURO_LED_PIN,
     NEO_GRB + NEO_KHZ800
 )
 {
-    rgbOK = false;
+    ledOK = false;
     cameraOK = false;
     sdOK = false;
     log = true;
@@ -33,47 +33,47 @@ void NeuroBoardClass::logMessagef(const char *format, ...)
     Serial.println(buffer);
 }
 
-void NeuroBoardClass::setRGB(uint8_t r,uint8_t g,uint8_t b)
+void NeuroBoardClass::setLED(uint8_t r,uint8_t g,uint8_t b)
 {
-    if(!rgbOK)
+    if(!ledOK)
     {
-        if(!initRGB())
+        if(!initLED())
         {
             return;
         }
     }
 
-    rgb.setPixelColor(
+    led.setPixelColor(
         0,
-        rgb.Color(r,g,b)
+        led.Color(r,g,b)
     );
 
-    rgb.show();
+    led.show();
 }
 
 
-void NeuroBoardClass::setBrightnessRGB(
+void NeuroBoardClass::setBrightnessLED(
     uint8_t brightness
 )
 {
-    rgb.setBrightness(
+    led.setBrightness(
         brightness
     );
 }
 
-bool NeuroBoardClass::initRGB()
+bool NeuroBoardClass::initLED()
 {
-    if(rgbOK)
+    if(ledOK)
     {
         return true;
     }
 
-    rgb.begin();
-    rgb.setBrightness(NEURO_RGB_BRIGHTNESS);
-    rgb.clear();
-    rgb.show();
+    led.begin();
+    led.setBrightness(NEURO_LED_BRIGHTNESS);
+    led.clear();
+    led.show();
 
-    rgbOK = true;
+    ledOK = true;
 
     return true;
 }

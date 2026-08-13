@@ -34,10 +34,10 @@
   },
   "examples": [
     {
-      "name": "1_RGB",
-      "base": "examples/1) RGB",
+      "name": "1_LED",
+      "base": "examples/1) LED",
       "files": [
-        "src/rgb.cpp"
+        "src/led.cpp"
       ]
     },
     {
