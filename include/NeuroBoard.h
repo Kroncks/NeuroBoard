@@ -18,7 +18,7 @@ private:
     bool sdOK;
     bool ledOK;
 
-    void logMessagef(
+    void neuroLog(
         const char* format,
         ...
     );

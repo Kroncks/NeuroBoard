@@ -18,7 +18,7 @@ led(
     log = true;
 }
 
-void NeuroBoardClass::logMessagef(const char *format, ...)
+void NeuroBoardClass::neuroLog(const char *format, ...)
 {
     if (!log)
         return;
@@ -82,7 +82,7 @@ bool NeuroBoardClass::initLED()
 bool NeuroBoardClass::initSD()
 {
 
-    logMessagef("[SD] Init");
+    neuroLog("[SD] Init");
 
 
     SD_MMC.setPins(
@@ -94,14 +94,14 @@ bool NeuroBoardClass::initSD()
 
     if(!SD_MMC.begin("/sdcard",true,true))
     {
-        logMessagef("[SD] FAILED");
+        neuroLog("[SD] FAILED");
 
         sdOK=false;
         return false;
     }
 
 
-    logMessagef("[SD] OK");
+    neuroLog("[SD] OK");
 
     sdOK=true;
 
@@ -115,7 +115,7 @@ bool NeuroBoardClass::initSD()
 bool NeuroBoardClass::initCamera()
 {
 
-    logMessagef("[CAM] Init...");
+    neuroLog("[CAM] Init...");
 
 
     camera_config_t config;
@@ -177,7 +177,7 @@ bool NeuroBoardClass::initCamera()
 
     if(err != ESP_OK)
     {
-        logMessagef(
+        neuroLog(
             "[CAM] ERROR 0x%x",
             err
         );
@@ -187,7 +187,7 @@ bool NeuroBoardClass::initCamera()
     }
 
 
-    logMessagef("[CAM] OK");
+    neuroLog("[CAM] OK");
 
     cameraOK=true;
 
