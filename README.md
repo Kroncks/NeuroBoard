@@ -124,7 +124,7 @@ You can find the examples of this library :
 
 | Example              | What it does                                                                 | Expected result                                                                                                    |
 | --------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `1_RGB`               | Cycles the onboard LED through red, green, blue                             | LED loops red → green → blue, 1s each, forever                                                                     |
+| `1_LED`               | Cycles the onboard LED through red, green, blue                             | LED loops red → green → blue, 1s each, forever                                                                     |
 | `2_SD`                | Initializes the SD card and writes `"bonsoir"` to `/test.txt`               | LED **green** if the card mounts and the write succeeds, **red** otherwise                                        |
 | `3_Test_init_camera`  | Initializes the camera only                                                 | LED **green** if `initCamera()` succeeds, **red** otherwise                                                        |
 | `4_Photo`             | Initializes camera + SD, captures one frame, saves it to `/photo_<ms>.jpg`  | LED **green** if capture and save both succeed, **red** if camera init, SD init, or the save fails                |
