@@ -38,9 +38,7 @@ void NeuroBoardClass::setLED(uint8_t r,uint8_t g,uint8_t b)
     if(!ledOK)
     {
         if(!initLED())
-        {
             return;
-        }
     }
 
     led.setPixelColor(
@@ -56,9 +54,13 @@ void NeuroBoardClass::setBrightnessLED(
     uint8_t brightness
 )
 {
-    led.setBrightness(
-        brightness
-    );
+    if (!ledOK)
+    {
+        if (!initLED())
+            return;
+    }
+
+    led.setBrightness(brightness);
 }
 
 bool NeuroBoardClass::initLED()
