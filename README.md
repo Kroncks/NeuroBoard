@@ -117,3 +117,14 @@ You can find the examples of this library :
 - Or you can directly open them through `PIO Home > Project Examples > NeuroBoard` if you have installed the NeuroBoard Platform
 
 *You can install the NeuroBoard Platform with `PIO Home > Platforms > Advanced installation > github.com/Kroncks/NeuroBoard > Install`*
+
+
+#### Expected results of examples
+
+| Example              | What it does                                                                 | Expected result                                                                                                    |
+| --------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `1_RGB`               | Cycles the onboard LED through red, green, blue                             | LED loops red → green → blue, 1s each, forever                                                                     |
+| `2_SD`                | Initializes the SD card and writes `"bonsoir"` to `/test.txt`               | LED **green** if the card mounts and the write succeeds, **red** otherwise                                        |
+| `3_Test_init_camera`  | Initializes the camera only                                                 | LED **green** if `initCamera()` succeeds, **red** otherwise                                                        |
+| `4_Photo`             | Initializes camera + SD, captures one frame, saves it to `/photo_<ms>.jpg`  | LED **green** if capture and save both succeed, **red** if camera init, SD init, or the save fails                |
+| `5_Demo_complete`     | Starts a Wi-Fi AP (`NeuroBoard-ALL-IN`) + web UI with live MJPEG stream, snapshot, and save-to-SD | LED **orange** during startup, **green** once camera + SD are both ready, **red** if either fails; web page reachable at the AP's IP, live stream on port `81` |
