@@ -32,25 +32,30 @@ void setup()
     Serial.begin(9600);
     NeuroBoard.initLED();
 
-    if(!NeuroBoard.initCamera())
-    {
-        NeuroBoard.setLED(255, 0, 0);
-        return;
-    }
+    NeuroBoard.initCamera();
+    NeuroBoard.initSD();
 
-    if(!NeuroBoard.initSD())
+    if(!NeuroBoard.hasCamera() && !NeuroBoard.hasSD())
     {
-        NeuroBoard.setLED(255, 0, 0);
+        NeuroBoard.setLED(255, 0, 0); // rouge
+        return;
+    } else if (!NeuroBoard.hasCamera())
+    {
+        NeuroBoard.setLED(148, 0, 211); // violet
+        return;
+    } else if (!NeuroBoard.hasSD())
+    {
+        NeuroBoard.setLED(255, 165, 0); // orange
         return;
     }
 
     if(capturePhotoToSD())
     {
-        NeuroBoard.setLED(0, 255, 0);
+        NeuroBoard.setLED(0, 255, 0); // vert
     }
     else
     {
-        NeuroBoard.setLED(255, 0, 0);
+        NeuroBoard.setLED(255, 0, 0); // rouge
     }
 }
 

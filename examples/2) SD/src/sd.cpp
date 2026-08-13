@@ -19,14 +19,14 @@ void setup()
 
     if(!NeuroBoard.initSD())
     {
-        NeuroBoard.setLED(255, 0, 0);
+        NeuroBoard.setLED(255, 165, 0); // orange
         return;
     }
 
     if(writeTestFile())
-        NeuroBoard.setLED(0, 255, 0);
+        NeuroBoard.setLED(0, 255, 0); // vert
     else
-        NeuroBoard.setLED(255, 0, 0);
+        NeuroBoard.setLED(255, 0, 0); // rouge
 }
 
 

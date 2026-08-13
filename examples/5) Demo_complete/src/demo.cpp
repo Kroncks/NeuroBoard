@@ -201,7 +201,7 @@ void setup()
 {
     Serial.begin(9600);
     NeuroBoard.initLED();
-    setLed(255, 165, 0);
+    setLed(0, 122, 123);
 
     WiFi.softAP(WIFI_NAME, WIFI_PASS);
     delay(300);
@@ -220,13 +220,20 @@ void setup()
         sensor->set_framesize(sensor, FRAMESIZE_QVGA);
     }
 
-    if(cameraOk && sdOk)
+    if (!cameraOk && !sdOk)
     {
-        setLed(0, 255, 0);
+        setLed(202, 83, 106); // rouge
+        return;
     }
-    else
+    else if (!cameraOk)
     {
-        setLed(255, 0, 0);
+        setLed(148, 0, 211); // violet
+        return;
+    }
+    else if (!sdOk)
+    {
+        setLed(255, 165, 0); // orange
+        return;
     }
 
     server.on("/", handleRoot);
@@ -239,6 +246,7 @@ void setup()
     xTaskCreatePinnedToCore(streamTask, "stream", 4096, nullptr, 1, nullptr, 0);
 
     Serial.println("[HTTP] Ready");
+    setLed(0, 255, 0); // vert
 }
 
 
