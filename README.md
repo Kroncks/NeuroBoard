@@ -22,6 +22,10 @@ NeuroBoard.setLED(0, 122, 123); // set the color of the LED
 | `initCamera()`           | Initialize camera    |
 | `hasCamera()`            | Check camera status  |
 
+| Property | Description                                                          |
+| -------- | -------------------------------------------------------------------- |
+| `log`    | Enable/disable internal logs printed to `Serial` (`true` by default) |
+
 ### Components :
 
 ---
@@ -106,6 +110,20 @@ if (NeuroBoard.hasCamera()) {
 }
 ```
 
+---
+
+### Logging
+ 
+#### `log`
+ 
+Public boolean field. When `true` (default), the library prints internal
+status messages to `Serial` (prefixed `[LED]`, `[SD]`, `[CAM]`). Set it to
+`false` to silence these logs.
+ 
+```cpp
+NeuroBoard.log = false; // disable internal logs
+```
+ 
 ---
 
 ## Examples 
