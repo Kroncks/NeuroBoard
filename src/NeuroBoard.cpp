@@ -69,6 +69,8 @@ void NeuroBoardClass::initLED()
 
 bool NeuroBoardClass::initSD(bool formatOnFail)
 {
+    if (sdOK) return true;
+
     neuroLog("[SD] Init");
 
     SD_MMC.setPins(
@@ -92,12 +94,21 @@ bool NeuroBoardClass::initSD(bool formatOnFail)
     return true;
 }
 
+void NeuroBoardClass::deinitSD()
+{
+    if (!sdOK) return;
 
+    SD_MMC.end();
+    sdOK = false;
+
+    neuroLog("[SD] Deinit");
+}
 
 
 
 bool NeuroBoardClass::initCamera()
 {
+    if (cameraOK) return true;
 
     neuroLog("[CAM] Init...");
 
@@ -178,7 +189,15 @@ bool NeuroBoardClass::initCamera()
     return true;
 }
 
+void NeuroBoardClass::deinitCamera()
+{
+    if (!cameraOK) return;
 
+    esp_camera_deinit();
+    cameraOK = false;
+
+    neuroLog("[CAM] Deinit");
+}
 
 
 bool NeuroBoardClass::hasCamera()
