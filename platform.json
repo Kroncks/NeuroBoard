@@ -1,5 +1,5 @@
 {
-  "name": "NeuroBoardS3_examples",
+  "name": "NeuroBoardS3",
   "title": "Banque d'exemples pour NeuroBoardS3",
   "version": "1.0.0",
   "description": "PlatformIO support for NeuroBoard ESP32-S3",
