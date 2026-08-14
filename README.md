@@ -127,5 +127,5 @@ You can find the examples of this library :
 | `1_LED` | Cycles the onboard LED through red, green, blue | 🔴 **red** → 🟢 **green** → 🔵 **blue**, 1s each, forever |
 | `2_SD` | Initializes the SD card and writes `"bonsoir"` to `/test.txt` | 🟠 **orange** if the card doesn't mount<br>🟢 **green** if the mount and the write succeed<br>🔴 **red** otherwise |
 | `3_Test_init_camera` | Initializes the camera only | 🟢 **green** if `initCamera()` succeeds<br>🔴 **red** otherwise |
-| `4_Photo` | Initializes camera + SD, captures one frame, saves it to `/photo_<ms>.jpg` | 🟢 **green** if capture and save both succeed<br>🟣 **purple** if the camera init fails<br>🟠 **orange** if the SD card init fails<br>🔴 **red** if camera init and SD init succeed, but the save fails |
+| `4_Photo` | Initializes camera + SD, captures one frame, saves it to `/photo_<ms>.jpg` | 🟢 **green** if capture and save both succeed<br>🟣 **purple** if the camera init fails<br>🟠 **orange** if the SD card init fails<br>🔴 **red** if camera init and SD init fails, or the save fails |
 | `5_Demo_complete` | Starts a Wi-Fi AP + web UI with live MJPEG stream, snapshot, and save-to-SD | ⚠️ **YOU NEED TO RENAME THE WIFI NAME FIRST**<br>🟢 **green** once everything is ready<br>🟣 **purple** if the camera init fails<br>🟠 **orange** if the SD card init fails<br>🔴 **red** if both fail |
