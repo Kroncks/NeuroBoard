@@ -129,13 +129,13 @@ NeuroBoard.log = false; // disable internal logs
 ## Examples 
 
 You can find the examples of this library :
-- On the [GitHub repository](https://github.com/Kroncks/NeuroBoard/tree/main/examples)
-- On the [Platformio library page](https://registry.platformio.org/libraries/kroncks/NeuroBoard/examples)
+- On the [GitHub repository](https://github.com/Kroncks/NeuroBoardS3/tree/main/examples)
+- On the [Platformio library page](https://registry.platformio.org/libraries/kroncks/NeuroBoardS3/examples)
 - On the Library tab in PIO Home
 - On the Packages tab in PIO Home if you have installed it
 - Or you can directly open them through `PIO Home > Project Examples > NeuroBoard` if you have installed the NeuroBoard Platform
 
-*You can install the NeuroBoard Platform with `PIO Home > Platforms > Advanced installation > github.com/Kroncks/NeuroBoard > Install`*
+*You can install the NeuroBoard Platform with `PIO Home > Platforms > Advanced installation > github.com/Kroncks/NeuroBoardS3 > Install`*
 
 
 #### Expected results of examples
