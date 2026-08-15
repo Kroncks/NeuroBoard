@@ -3,7 +3,7 @@
   "title": "Banque d'exemples pour NeuroBoardS3",
   "version": "1.0.0",
   "description": "PlatformIO support for NeuroBoard ESP32-S3",
-  "homepage": "https://github.com/Kroncks/NeuroBoard",
+  "homepage": "https://github.com/Kroncks/NeuroBoardS3",
   "license": "MIT"
 }
 
