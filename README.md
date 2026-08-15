@@ -1,4 +1,4 @@
-# NeuroBoard
+# NeuroBoardS3
 The NeuroBoardS3 library provides a simple interface for controlling the main hardware features of the NeuroBoardS3, including the RGB LED, SD card, and camera.
 
 ## API Reference
