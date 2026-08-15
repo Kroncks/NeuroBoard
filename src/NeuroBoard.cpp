@@ -1,4 +1,4 @@
-#include "NeuroBoard.h"
+#include "NeuroBoardS3.h"
 #include "config.h"
 
 
