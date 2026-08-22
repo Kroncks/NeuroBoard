@@ -5,6 +5,7 @@
 void setup()
 {
     pinMode(LED_PIN, OUTPUT);
+    delay(2000);
 }
 
 void loop()
