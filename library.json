@@ -67,6 +67,13 @@
       "files": [
         "src/demo.cpp"
       ]
+    },
+    {
+      "name": "6_OLED",
+      "base": "examples/6) OLED",
+      "files": [
+        "src/oled.cpp"
+      ]
     }
   ]
 }
