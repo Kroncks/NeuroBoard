@@ -74,6 +74,13 @@
       "files": [
         "src/oled.cpp"
       ]
+    },
+    {
+      "name": "7_Potentiometre",
+      "base": "examples/7) Potentiometre",
+      "files": [
+        "src/potentiometre.cpp"
+      ]
     }
   ]
 }
