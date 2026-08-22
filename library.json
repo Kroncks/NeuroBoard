@@ -81,6 +81,20 @@
       "files": [
         "src/potentiometre.cpp"
       ]
+    },
+    {
+      "name": "8_Neuro_ISP",
+      "base": "examples/8) Neuro ISP",
+      "files": [
+        "src/neuro_isp.cpp"
+      ]
+    },
+    {
+      "name": "9_ATtiny_ISP",
+      "base": "examples/9) ATtiny ISP",
+      "files": [
+        "src/attiny_isp.cpp"
+      ]
     }
   ]
 }
