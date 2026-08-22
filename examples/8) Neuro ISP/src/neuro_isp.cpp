@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <NeuroBoardS3.h>
 
 void avrisp();
@@ -24,92 +23,19 @@ uint8_t write_eeprom_chunk(unsigned int start, unsigned int length);
 #define SPI_CLOCK (1000000 / 6)
 
 
-// Select hardware or software SPI, depending on SPI clock.
-// Currently only for AVR, for other architectures (Due, Zero,...), hardware SPI
-// is probably too fast anyway.
 
-#if defined(ARDUINO_ARCH_AVR)
-
-#if SPI_CLOCK > (F_CPU / 128)
-#define USE_HARDWARE_SPI
-#endif
-
-#endif
-
-// Configure which pins to use:
-
-// The standard pin configuration.
-#ifndef ARDUINO_HOODLOADER2
-
-#define RESET 10  // Use pin 10 to reset the target rather than SS
-#define LED_HB 9
-#define LED_ERR 8
-#define LED_PMODE 7
-
-// Uncomment following line to use the old Uno style wiring
-// (using pin 11, 12 and 13 instead of the SPI header) on Leonardo, Due...
-
-// #define USE_OLD_STYLE_WIRING
-
-#ifdef USE_OLD_STYLE_WIRING
-
-#define ARDUINOISP_PIN_MOSI 11
-#define ARDUINOISP_PIN_MISO 12
-#define ARDUINOISP_PIN_SCK 13
-
-#endif
-
-// HOODLOADER2 means running sketches on the ATmega16U2 serial converter chips
-// on Uno or Mega boards. We must use pins that are broken out:
-#else
-
-#define RESET 4
-#define LED_HB 7
-#define LED_ERR 6
-#define LED_PMODE 5
-
-#endif
-
-// By default, use hardware SPI pins:
-#ifndef ARDUINOISP_PIN_MOSI
-#define ARDUINOISP_PIN_MOSI MOSI
-#endif
-
-#ifndef ARDUINOISP_PIN_MISO
-#define ARDUINOISP_PIN_MISO MISO
-#endif
-
-#ifndef ARDUINOISP_PIN_SCK
-#define ARDUINOISP_PIN_SCK SCK
-#endif
-
-// Force bitbanged SPI if not using the hardware SPI pins:
-#if (ARDUINOISP_PIN_MISO != MISO) || (ARDUINOISP_PIN_MOSI != MOSI) || (ARDUINOISP_PIN_SCK != SCK)
-#undef USE_HARDWARE_SPI
-#endif
+// pin definition
+#define NEURO_ISP_PIN_RESET 10  
+#define NEURO_ISP_PIN_MOSI 11
+#define NEURO_ISP_PIN_MISO 13
+#define NEURO_ISP_PIN_SCK 12
 
 
-// Configure the serial port to use.
-//
-// Prefer the USB virtual serial port (aka. native USB port), if the Arduino has one:
-//   - it does not autoreset (except for the magic baud rate of 1200).
-//   - it is more reliable because of USB handshaking.
-//
-// Leonardo and similar have an USB virtual serial port: 'Serial'.
-// Due and Zero have an USB virtual serial port: 'SerialUSB'.
-//
-// On the Due and Zero, 'Serial' can be used too, provided you disable autoreset.
-// To use 'Serial': #define SERIAL Serial
-
-#ifdef SERIAL_PORT_USBVIRTUAL
-#define SERIAL SERIAL_PORT_USBVIRTUAL
-#else
 #define SERIAL Serial
-#endif
+
 
 
 // Configure the baud rate:
-
 #define BAUDRATE 19200
 // #define BAUDRATE	115200
 // #define BAUDRATE	1000000
@@ -129,9 +55,7 @@ uint8_t write_eeprom_chunk(unsigned int start, unsigned int length);
 
 void pulse(int pin, int times);
 
-#ifdef USE_HARDWARE_SPI
-#include "SPI.h"
-#else
+
 
 #define SPI_MODE0 0x00
 
@@ -157,11 +81,11 @@ private:
 class BitBangedSPI {
 public:
   void begin() {
-    digitalWrite(ARDUINOISP_PIN_SCK, LOW);
-    digitalWrite(ARDUINOISP_PIN_MOSI, LOW);
-    pinMode(ARDUINOISP_PIN_SCK, OUTPUT);
-    pinMode(ARDUINOISP_PIN_MOSI, OUTPUT);
-    pinMode(ARDUINOISP_PIN_MISO, INPUT);
+    digitalWrite(NEURO_ISP_PIN_SCK, LOW);
+    digitalWrite(NEURO_ISP_PIN_MOSI, LOW);
+    pinMode(NEURO_ISP_PIN_SCK, OUTPUT);
+    pinMode(NEURO_ISP_PIN_MOSI, OUTPUT);
+    pinMode(NEURO_ISP_PIN_MISO, INPUT);
   }
 
   void beginTransaction(SPISettings settings) {
@@ -175,11 +99,11 @@ public:
 
   uint8_t transfer(uint8_t b) {
     for (unsigned int i = 0; i < 8; ++i) {
-      digitalWrite(ARDUINOISP_PIN_MOSI, (b & 0x80) ? HIGH : LOW);
-      digitalWrite(ARDUINOISP_PIN_SCK, HIGH);
+      digitalWrite(NEURO_ISP_PIN_MOSI, (b & 0x80) ? HIGH : LOW);
+      digitalWrite(NEURO_ISP_PIN_SCK, HIGH);
       delayMicroseconds(pulseWidth);
-      b = (b << 1) | digitalRead(ARDUINOISP_PIN_MISO);
-      digitalWrite(ARDUINOISP_PIN_SCK, LOW);  // slow pulse
+      b = (b << 1) | digitalRead(NEURO_ISP_PIN_MISO);
+      digitalWrite(NEURO_ISP_PIN_SCK, LOW);  // slow pulse
       delayMicroseconds(pulseWidth);
     }
     return b;
@@ -191,14 +115,13 @@ private:
 
 static BitBangedSPI SPI;
 
-#endif
 
 void setup() {
   NeuroBoard.initLED();
   NeuroBoard.setLED(100, 100, 100);
 
-  pinMode(RESET, OUTPUT);
-  digitalWrite(RESET, HIGH);
+  pinMode(NEURO_ISP_PIN_RESET, OUTPUT);
+  digitalWrite(NEURO_ISP_PIN_RESET, HIGH);
 
   SPI.begin();
 
@@ -257,7 +180,7 @@ void heartbeat() {
 static bool rst_active_high;
 
 void reset_target(bool reset) {
-  digitalWrite(RESET, ((reset && rst_active_high) || (!reset && !rst_active_high)) ? HIGH : LOW);
+  digitalWrite(NEURO_ISP_PIN_RESET, ((reset && rst_active_high) || (!reset && !rst_active_high)) ? HIGH : LOW);
 }
 
 void loop(void) {
@@ -377,14 +300,14 @@ void start_pmode() {
   // So we have to configure RESET as output here,
   // (reset_target() first sets the correct level)
   reset_target(true);
-  pinMode(RESET, OUTPUT);
+  pinMode(NEURO_ISP_PIN_RESET, OUTPUT);
   SPI.begin();
   SPI.beginTransaction(SPISettings(SPI_CLOCK, MSBFIRST, SPI_MODE0));
 
   // See AVR datasheets, chapter "SERIAL_PRG Programming Algorithm":
 
   // Pulse RESET after ARDUINOISP_PIN_SCK is low:
-  digitalWrite(ARDUINOISP_PIN_SCK, LOW);
+  digitalWrite(NEURO_ISP_PIN_SCK, LOW);
   delay(20);  // discharge ARDUINOISP_PIN_SCK, value arbitrarily chosen
   reset_target(false);
   // Pulse must be minimum 2 target CPU clock cycles so 100 usec is ok for CPU
@@ -401,10 +324,10 @@ void start_pmode() {
 void end_pmode() {
   SPI.end();
   // We're about to take the target out of reset so configure SPI pins as input
-  pinMode(ARDUINOISP_PIN_MOSI, INPUT);
-  pinMode(ARDUINOISP_PIN_SCK, INPUT);
+  pinMode(NEURO_ISP_PIN_MOSI, INPUT);
+  pinMode(NEURO_ISP_PIN_SCK, INPUT);
   reset_target(false);
-  pinMode(RESET, INPUT);
+  pinMode(NEURO_ISP_PIN_RESET, INPUT);
   pmode = 0;
 }
 
@@ -423,14 +346,10 @@ void flash(uint8_t hilo, unsigned int addr, uint8_t data) {
                   data);
 }
 void commit(unsigned int addr) {
-  if (PROG_FLICKER) {
     NeuroBoard.setLED(255, 165, 0);
-  }
-  spi_transaction(0x4C, (addr >> 8) & 0xFF, addr & 0xFF, 0);
-  if (PROG_FLICKER) {
-    delay(PTIME);
+    spi_transaction(0x4C, (addr >> 8) & 0xFF, addr & 0xFF, 0);
     NeuroBoard.setLED(0, 255, 0);
-  }
+    delay(30);
 }
 
 unsigned int current_page() {
@@ -668,9 +587,11 @@ void avrisp() {
       universal();
       break;
     case 'Q':  //0x51
-      ISPError = 0;
-      end_pmode();
-      empty_reply();
+        ISPError = 0;
+        end_pmode();
+        empty_reply();
+        NeuroBoard.setLED(0, 255, 0);
+        delay(2000);
       break;
 
     case 0x75:  //STK_READ_SIGN 'u'
